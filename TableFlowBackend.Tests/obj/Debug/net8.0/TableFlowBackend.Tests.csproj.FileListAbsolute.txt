@@ -169,3 +169,4 @@
 /home/knutekje/Code/TableFlow/TableFlowBackend.Tests/obj/Debug/net8.0/TableFlowBackend.Tests.pdb
 /home/knutekje/Code/TableFlow/TableFlowBackend.Tests/obj/Debug/net8.0/TableFlowBackend.Tests.genruntimeconfig.cache
 /home/knutekje/Code/TableFlow/TableFlowBackend.Tests/obj/Debug/net8.0/ref/TableFlowBackend.Tests.dll
+/home/knutekje/Code/TableFlow/TableFlowBackend.Tests/obj/Debug/net8.0/TableFlowBackend.Tests.sourcelink.json
