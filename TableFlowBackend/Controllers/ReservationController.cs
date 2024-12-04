@@ -20,6 +20,13 @@ public class ReservationController : ControllerBase
         return Ok(reservations);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetReservationById(int id)
+    {
+        var reservation = await _reservationService.GetReservationByIdAsync(id);
+        return Ok(reservation);
+    }
+
     [HttpPost]
     public async Task<IActionResult> AddReservation([FromBody] Reservation reservation)
     {

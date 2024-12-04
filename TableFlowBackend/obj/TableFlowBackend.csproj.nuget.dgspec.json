@@ -13,6 +13,7 @@
         "packagesPath": "/home/knutekje/.nuget/packages/",
         "outputPath": "/home/knutekje/Code/TableFlow/TableFlowBackend/obj/",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/home/knutekje/.nuget/NuGet/NuGet.Config"
         ],
