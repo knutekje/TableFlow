@@ -13,7 +13,7 @@ public class ReservationController : ControllerBase
         _reservationService = reservationService;
     }
 
-    [HttpGet]
+    [HttpGet("/api/[controller]/[action]")]
     public async Task<IActionResult> GetReservations()
     {
         var reservations = await _reservationService.GetAllReservationsAsync();
@@ -24,13 +24,24 @@ public class ReservationController : ControllerBase
     public async Task<IActionResult> GetReservationById(int id)
     {
         var reservation = await _reservationService.GetReservationByIdAsync(id);
+        if (reservation == null)
+        {
+            return NotFound("Reservation not found");
+        }
         return Ok(reservation);
     }
 
     [HttpPost]
     public async Task<IActionResult> AddReservation([FromBody] Reservation reservation)
     {
-        await _reservationService.AddReservationAsync(reservation);
-        return CreatedAtAction(nameof(GetReservations), new { id = reservation.ReservationId }, reservation);
+        /*try
+        {*/
+            await _reservationService.AddReservationAsync(reservation);
+            return CreatedAtAction(nameof(GetReservationById), new { id = reservation.ReservationId }, reservation);
+        /*}
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }*/
     }
 }

@@ -24,9 +24,11 @@ public class ReservationService
 
     public async Task AddReservationAsync(Reservation reservation)
     {
+     
+        
         if (reservation.PartySize <= 0)
             throw new ArgumentException("Party size must be greater than zero.");
-
+     
         await _reservationRepository.AddAsync(reservation);
     }
 

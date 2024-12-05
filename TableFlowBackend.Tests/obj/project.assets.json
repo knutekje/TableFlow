@@ -1241,6 +1241,33 @@
           }
         }
       },
+      "SQLite/3.13.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libsqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-x64/native/libsqlite3.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win7-x64/native/sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win7-x64"
+          },
+          "runtimes/win7-x86/native/sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win7-x86"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.6.2": {
         "type": "package",
         "dependencies": {
@@ -2837,6 +2864,7 @@
           "Microsoft.AspNetCore.OpenApi": "8.0.11",
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "SQLite": "3.13.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
         "compile": {
@@ -4703,6 +4731,27 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "SQLite/3.13.0": {
+      "sha512": "MJfRiz2p6aMVOxrxGMdVzhpzI0oxTgZSwC8eVuOpV8L7yYaFUu8q/OFYwv9P0/aZ/pdEu24O6gma6wZJMTun9A==",
+      "type": "package",
+      "path": "sqlite/3.13.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net45/SQLite.props",
+        "lib/netstandard1.0/_._",
+        "runtimes/linux-x64/native/libsqlite3.so",
+        "runtimes/osx-x64/native/libsqlite3.dylib",
+        "runtimes/win10-arm/nativeassets/uap10.0/sqlite3.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/sqlite3.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/sqlite3.dll",
+        "runtimes/win7-x64/native/sqlite3.dll",
+        "runtimes/win7-x86/native/sqlite3.dll",
+        "sqlite-version.txt",
+        "sqlite.3.13.0.nupkg.sha512",
+        "sqlite.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/6.6.2": {
@@ -8685,6 +8734,7 @@
       "Microsoft.EntityFrameworkCore.InMemory >= 9.0.0",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "Moq >= 4.20.72",
+      "SQLite >= 3.13.0",
       "TableFlowBackend >= 1.0.0",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.5.3",
@@ -8692,20 +8742,20 @@
     ]
   },
   "packageFolders": {
-    "/home/knutekje/.nuget/packages/": {}
+    "C:\\Users\\knute\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/knutekje/Code/TableFlow/TableFlowBackend.Tests/TableFlowBackend.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend.Tests\\TableFlowBackend.Tests.csproj",
       "projectName": "TableFlowBackend.Tests",
-      "projectPath": "/home/knutekje/Code/TableFlow/TableFlowBackend.Tests/TableFlowBackend.Tests.csproj",
-      "packagesPath": "/home/knutekje/.nuget/packages/",
-      "outputPath": "/home/knutekje/Code/TableFlow/TableFlowBackend.Tests/obj/",
+      "projectPath": "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend.Tests\\TableFlowBackend.Tests.csproj",
+      "packagesPath": "C:\\Users\\knute\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
-        "/home/knutekje/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\knute\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8717,8 +8767,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/knutekje/Code/TableFlow/TableFlowBackend/TableFlowBackend.csproj": {
-              "projectPath": "/home/knutekje/Code/TableFlow/TableFlowBackend/TableFlowBackend.csproj"
+            "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend\\TableFlowBackend.csproj": {
+              "projectPath": "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend\\TableFlowBackend.csproj"
             }
           }
         }
@@ -8754,6 +8804,10 @@
             "target": "Package",
             "version": "[4.20.72, )"
           },
+          "SQLite": {
+            "target": "Package",
+            "version": "[3.13.0, )"
+          },
           "coverlet.collector": {
             "target": "Package",
             "version": "[6.0.0, )"
@@ -8785,7 +8839,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

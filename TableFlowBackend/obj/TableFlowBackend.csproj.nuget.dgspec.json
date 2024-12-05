@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "/home/knutekje/Code/TableFlow/TableFlowBackend/TableFlowBackend.csproj": {}
+    "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend\\TableFlowBackend.csproj": {}
   },
   "projects": {
-    "/home/knutekje/Code/TableFlow/TableFlowBackend/TableFlowBackend.csproj": {
+    "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend\\TableFlowBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/knutekje/Code/TableFlow/TableFlowBackend/TableFlowBackend.csproj",
+        "projectUniqueName": "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend\\TableFlowBackend.csproj",
         "projectName": "TableFlowBackend",
-        "projectPath": "/home/knutekje/Code/TableFlow/TableFlowBackend/TableFlowBackend.csproj",
-        "packagesPath": "/home/knutekje/.nuget/packages/",
-        "outputPath": "/home/knutekje/Code/TableFlow/TableFlowBackend/obj/",
+        "projectPath": "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend\\TableFlowBackend.csproj",
+        "packagesPath": "C:\\Users\\knute\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\knute\\RiderProjects\\TableFlow\\TableFlowBackend\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/home/knutekje/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\knute\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -66,6 +66,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "SQLite": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
@@ -90,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

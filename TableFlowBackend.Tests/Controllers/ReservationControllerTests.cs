@@ -1,8 +1,10 @@
+
+namespace TableFlowBackend.Tests.Controllers;
+
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using TableFlowBackend.Services;
 
-namespace TableFlowBackend.Tests.Controllers;
 
 
 using Microsoft.EntityFrameworkCore;
@@ -10,21 +12,42 @@ using TableFlowBackend.Data;
 using TableFlowBackend.Models;
 using Xunit;
 
-public class ReservationRepositoryTests
+public class ReservationControllerTests
 {
     [Fact]
     public async Task GetReservationById_ShouldReturnNotFound_WhenReservationDoesNotExist()
     {
-        // Arrange
-        var mockService = new Mock<ReservationService>(null);
-        mockService.Setup(service => service.GetReservationByIdAsync(It.IsAny<int>())).ThrowsAsync(new KeyNotFoundException());
-        var controller = new ReservationController(mockService.Object);
+        var mockRepo = new Mock<IRepository<Reservation>>();
+        mockRepo.Setup(repo => repo.GetByIdAsync(It.IsAny<int>())).ReturnsAsync((Reservation?)null);
 
-        // Act
+        var service = new ReservationService(mockRepo.Object); // Use real service
+        var controller = new ReservationController(service);   // Pass service to controller
+
         var result = await controller.GetReservationById(1);
 
-        // Assert
-        Assert.IsType<NotFoundObjectResult>(result);
+        var notFoundResult = Assert.IsType<NotFoundObjectResult>(result);
+        Assert.Equal("404", notFoundResult.StatusCode.ToString());
+    }
+
+    [Fact]
+    public async Task CreateReservation_ShouldReturnCreated_WhenReservationIsCreated()
+    {
+        
+        
+        var mockRepo = new Mock<IRepository<Reservation>>();
+        mockRepo.Setup(repo => repo.AddAsync(It.IsAny<Reservation>()))
+            .Returns(Task.CompletedTask);
+        
+        var service = new ReservationService(mockRepo.Object);
+        var controller = new ReservationController(service);
+       
+        
+        var result = await controller.AddReservation(new Reservation { CustomerName = "Alice", PartySize = 1});
+        
+        var createdResult = Assert.IsType<CreatedAtActionResult>(result);
+        Assert.Equal("GetReservationById", createdResult.ActionName);
+        
+        
     }
 
 }
