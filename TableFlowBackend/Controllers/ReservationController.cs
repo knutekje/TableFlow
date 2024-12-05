@@ -7,17 +7,29 @@ using TableFlowBackend.Services;
 public class ReservationController : ControllerBase
 {
     private readonly ReservationService _reservationService;
+    private readonly ILogger<ReservationController> _logger;
 
-    public ReservationController(ReservationService reservationService)
+    public ReservationController(ReservationService reservationService, ILogger<ReservationController> logger)
     {
         _reservationService = reservationService;
-    }
+        _logger = logger ?? Microsoft.Extensions.Logging.Abstractions.NullLogger<ReservationController>.Instance;    }
+
+   
 
     [HttpGet("/api/[controller]/[action]")]
     public async Task<IActionResult> GetReservations()
     {
-        var reservations = await _reservationService.GetAllReservationsAsync();
-        return Ok(reservations);
+        try
+        {
+            _logger.LogInformation("Fetching all reservations");
+
+            var reservations = await _reservationService.GetAllReservationsAsync();
+            return Ok(reservations);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpGet]
@@ -34,14 +46,15 @@ public class ReservationController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> AddReservation([FromBody] Reservation reservation)
     {
-        /*try
-        {*/
+        try
+        {
+            _logger.LogInformation("Adding a new reservation for {CustomerName}", reservation.CustomerName);
             await _reservationService.AddReservationAsync(reservation);
             return CreatedAtAction(nameof(GetReservationById), new { id = reservation.ReservationId }, reservation);
-        /*}
+        }
         catch (Exception ex)
         {
             return BadRequest(ex.Message);
-        }*/
+        }
     }
 }

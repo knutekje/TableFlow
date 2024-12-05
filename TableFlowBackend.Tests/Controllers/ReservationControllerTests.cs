@@ -1,4 +1,6 @@
 
+using Microsoft.Extensions.Logging;
+
 namespace TableFlowBackend.Tests.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
@@ -14,14 +16,16 @@ using Xunit;
 
 public class ReservationControllerTests
 {
+    
     [Fact]
     public async Task GetReservationById_ShouldReturnNotFound_WhenReservationDoesNotExist()
     {
+
         var mockRepo = new Mock<IRepository<Reservation>>();
         mockRepo.Setup(repo => repo.GetByIdAsync(It.IsAny<int>())).ReturnsAsync((Reservation?)null);
 
-        var service = new ReservationService(mockRepo.Object); // Use real service
-        var controller = new ReservationController(service);   // Pass service to controller
+        var service = new ReservationService(mockRepo.Object); 
+        var controller = new ReservationController(service, null);   
 
         var result = await controller.GetReservationById(1);
 
@@ -39,7 +43,7 @@ public class ReservationControllerTests
             .Returns(Task.CompletedTask);
         
         var service = new ReservationService(mockRepo.Object);
-        var controller = new ReservationController(service);
+        var controller = new ReservationController(service, null);
        
         
         var result = await controller.AddReservation(new Reservation { CustomerName = "Alice", PartySize = 1});
@@ -49,5 +53,6 @@ public class ReservationControllerTests
         
         
     }
+
 
 }
