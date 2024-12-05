@@ -7,6 +7,7 @@ public class Reservation
     public DateTime ReservationDate { get; set; }
     public int PartySize { get; set; }
     public string SpecialRequests { get; set; } = "None";
-    public int TableId { get; set; }
-    public Table Table { get; set; }
+    public int? TableId { get; set; } // Nullable for unassigned reservations
+    public Table? Table { get; set; } // Navigation property
+    public Customer Customer { get; set; }
 }

@@ -1,11 +1,8 @@
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TableFlowBackend.Models;
 using TableFlowBackend.Services;
-using Xunit;
+
+namespace TableFlowBackend.Tests.Services;
 
 public class ReservationServiceTests
 {

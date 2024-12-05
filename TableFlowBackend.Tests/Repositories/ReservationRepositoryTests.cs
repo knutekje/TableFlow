@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using TableFlowBackend.Data;
 using TableFlowBackend.Models;
-using Xunit;
+
+namespace TableFlowBackend.Tests.Repositories;
 
 public class ReservationRepositoryTests
 {
